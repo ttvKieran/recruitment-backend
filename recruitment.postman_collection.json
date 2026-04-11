@@ -594,7 +594,7 @@
   "variable": [
     {
       "key": "base_url",
-      "value": "localhost:8081"
+      "value": "http://localhost:8081"
     },
     {
       "key": "access_token",
