@@ -594,31 +594,31 @@
   "variable": [
     {
       "key": "base_url",
-      "value": ""
+      "value": "localhost:8081"
     },
     {
       "key": "access_token",
-      "value": ""
+      "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE3NzU5NTExNzEsImlhdCI6MTc3NTg2NDc3MSwidXNlciI6eyJ1c2VySWQiOjIsImVtcGxveWVlSWQiOjIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibmFtZSI6IkFkbWluIiwicm9sZSI6IkFETUlOIiwiZGVwYXJ0bWVudElkIjpudWxsLCJkZXBhcnRtZW50Q29kZSI6bnVsbH19.AjSLu5j66XNYU6jsS11P2-tk6f36mtZtBKJQiHK9IpdwUdo3HZRwB5-nMzvEVJVLhZYLXHm1H5Ny65aZvSePCw"
     },
     {
       "key": "candidate_id",
-      "value": ""
+      "value": "1"
     },
     {
       "key": "job_title",
-      "value": ""
+      "value": "Software Engineer"
     },
     {
       "key": "candidate_name",
-      "value": ""
+      "value": "Nguyen Van A"
     },
     {
       "key": "candidate_email",
-      "value": ""
+      "value": "candidate.b@example.com"
     },
     {
       "key": "temp_job_id",
-      "value": "",
+      "value": "5",
       "type": "default"
     }
   ]
