@@ -24,6 +24,13 @@ jobs:
           npm install -g newman 
           npm install -g newman-reporter-htmlextra
 
+      - name: Start Backend Services (Docker Compose)
+        run: |
+          docker-compose up -d --build
+          echo "Waiting for services to initialize..."
+          sleep 90 # Đợi Spring Boot khởi động
+          docker ps
+
       - name: Run Postman Collection
         run: |
           newman run recruitment.postman_collection.json \
