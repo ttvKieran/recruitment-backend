@@ -6,6 +6,8 @@ on:
   pull_request:
     branches:
       - main
+  schedule:
+    - cron: '0 0 * * *' # Chạy tự động vào lúc 00:00 (Nửa đêm chuẩn UTC) định kỳ mỗi ngày
 
 jobs:
   test-api:
