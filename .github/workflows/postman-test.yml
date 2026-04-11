@@ -26,7 +26,7 @@ jobs:
 
       - name: Start Backend Services (Docker Compose)
         run: |
-          docker-compose up -d --build
+          docker compose up -d --build
           echo "Waiting for services to initialize..."
           sleep 90 # Đợi Spring Boot khởi động
           docker ps
