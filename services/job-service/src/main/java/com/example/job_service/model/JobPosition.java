@@ -7,7 +7,6 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalDateTime;
 
 import com.example.job_service.utils.SecurityUtil;
 import com.example.job_service.utils.enums.JobPositionStatus;
@@ -59,17 +58,15 @@ public class JobPosition {
 
     @PrePersist
     public void handleBeforeCreate() {
-        this.createBy = !SecurityUtil.extractUserEmail().isEmpty() == true
-                ? SecurityUtil.extractUserEmail()
-                : "";
+        String userEmail = SecurityUtil.extractUserEmail();
+        this.createBy = userEmail != null ? userEmail : "";
         this.createdAt = LocalDateTime.now();
     }
 
     @PreUpdate
     public void handleBeforeUpdate() {
-        this.updateBy = !SecurityUtil.extractUserEmail().isEmpty() == true
-                ? SecurityUtil.extractUserEmail()
-                : "";
+        String userEmail = SecurityUtil.extractUserEmail();
+        this.updateBy = userEmail != null ? userEmail : "";
         this.updatedAt = LocalDateTime.now();
     }
 }

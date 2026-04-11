@@ -1,0 +1,38 @@
+name: Recruitment API Automation Testing
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Newman & HTMLExtra Reporter
+        run: |
+          npm install -g newman 
+          npm install -g newman-reporter-htmlextra
+
+      - name: Run Postman Collection
+        run: |
+          newman run recruitment.postman_collection.json \
+            -e Local.postman_environment.json \
+            -r cli,htmlextra
+
+      - name: Upload HTML Test Report
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: postman-test-report
+          path: newman/
