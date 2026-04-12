@@ -12,6 +12,38 @@
       "item": [
         {
           "name": "login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Đăng nhập thành công (Status 200)\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "if (pm.response.code === 200) {\r",
+                  "    try {\r",
+                  "        let jsonData = pm.response.json();\r",
+                  "        \r",
+                  "        let token = jsonData.data.access_token; \r",
+                  "        \r",
+                  "        if (token) {\r",
+                  "            pm.collectionVariables.set(\"access_token\", token);\r",
+                  "            console.log(\"Đã lưu Token thành công: \", token);\r",
+                  "        } else {\r",
+                  "            console.warn(\"Đăng nhập thành công nhưng không tìm thấy trường access_token trong response!\");\r",
+                  "        }\r",
+                  "    } catch (e) {\r",
+                  "        console.error(\"Lỗi khi đọc dữ liệu JSON: \", e.message);\r",
+                  "    }\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
           "protocolProfileBehavior": {
             "disabledSystemHeaders": {}
           },
@@ -594,32 +626,38 @@
   "variable": [
     {
       "key": "base_url",
-      "value": "http://localhost:8081"
+      "value": "localhost:8081",
+      "default": "localhost:8081"
     },
     {
       "key": "access_token",
-      "value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE3NzU5NTExNzEsImlhdCI6MTc3NTg2NDc3MSwidXNlciI6eyJ1c2VySWQiOjIsImVtcGxveWVlSWQiOjIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibmFtZSI6IkFkbWluIiwicm9sZSI6IkFETUlOIiwiZGVwYXJ0bWVudElkIjpudWxsLCJkZXBhcnRtZW50Q29kZSI6bnVsbH19.AjSLu5j66XNYU6jsS11P2-tk6f36mtZtBKJQiHK9IpdwUdo3HZRwB5-nMzvEVJVLhZYLXHm1H5Ny65aZvSePCw"
+      "value": "",
+      "default": ""
     },
     {
       "key": "candidate_id",
-      "value": "1"
+      "value": "1",
+      "default": "1"
     },
     {
       "key": "job_title",
-      "value": "Software Engineer"
+      "value": "Software Engineer",
+      "default": "Software Engineer"
     },
     {
       "key": "candidate_name",
-      "value": "Nguyen Van A"
+      "value": "Trường Vũ",
+      "default": "Trường Vũ"
     },
     {
       "key": "candidate_email",
-      "value": "candidate.b@example.com"
+      "value": "candidate.b@example.com",
+      "default": "candidate.b@example.com"
     },
     {
       "key": "temp_job_id",
       "value": "5",
-      "type": "default"
+      "default": "5"
     }
   ]
 }
