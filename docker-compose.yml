@@ -115,6 +115,8 @@ services:
       SPRING_DATASOURCE_PASSWORD: 123456
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       USER_SERVICE_URL: http://user-service:8082
+      WORKFLOW_SERVICE_URL: http://workflow-service:8086
+      CANDIDATE_SERVICE_URL: http://candidate-service:8084
 
   # Candidate Service
   candidate-service:
@@ -139,6 +141,8 @@ services:
       SPRING_DATASOURCE_PASSWORD: 123456
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
       USER_SERVICE_URL: http://user-service:8082
+      JOB_SERVICE_URL: http://job-service:8083
+      SCHEDULE_SERVICE_URL: http://schedule-service:8085
 
   # Schedule Service
   schedule-service:
@@ -187,6 +191,8 @@ services:
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: 123456
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      USER_SERVICE_URL: http://user-service:8082
+      CANDIDATE_SERVICE_URL: http://candidate-service:8084
 
   # Upload Service
   upload-service:
@@ -224,6 +230,8 @@ services:
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: 123456
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      USER_SERVICE_URL: http://user-service:8082
+      CANDIDATE_SERVICE_URL: http://candidate-service:8084
 
   # Statistics Service
   statistics-service:
@@ -272,6 +280,8 @@ services:
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: 123456
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      USER_SERVICE_URL: http://user-service:8082
+      CANDIDATE_SERVICE_URL: http://candidate-service:8084
 
 networks:
   backend-network:
